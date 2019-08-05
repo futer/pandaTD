@@ -9,6 +9,7 @@ export default class Enemy {
         this.position = [20, 20]
         this.endPoint = [20, 700];
         this.id = id;
+        this.hp = 100;
 
         this.images = [];
         for (let [key, value] of Object.entries(enemyImg)) {
@@ -21,7 +22,6 @@ export default class Enemy {
     drawEnemy() {
         this.ctx.fillStyle = '#000000';
         this.ctx.drawImage(this.images[1], this.position[0], this.position[1], 50, 50);
-        // this.ctx.fillRect(this.position[0], this.position[1], 100, 100);
     }
 
     movingEnemy() {
@@ -54,6 +54,10 @@ export default class Enemy {
             }
             element.drawEnemy();
         });
+    }
+
+    destroyEnemy() {
+      delete this;  
     }
 
 }
